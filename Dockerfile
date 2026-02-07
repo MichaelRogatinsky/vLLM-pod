@@ -48,9 +48,5 @@ ENV MODEL_NAME="Qwen/Qwen3-Coder-Next" \
     MAX_NUM_SEQS=256 \
     TOKENIZER_MODE=auto
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-    CMD python3 -c "import requests; requests.get('http://localhost:8000/health', timeout=5)"
-
 # Run the handler
 CMD ["python3", "-u", "/app/src/handler.py"]
