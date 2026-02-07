@@ -1,0 +1,52 @@
+{
+  "name": "vLLM Worker - Qwen3-Coder-Next",
+  "description": "OpenAI-compatible vLLM serverless worker optimized for Qwen3-Coder-Next",
+  "version": "1.0.0",
+  "schema": {
+    "MODEL_NAME": {
+      "type": "string",
+      "default": "Qwen/Qwen3-Coder-Next",
+      "description": "Hugging Face model repository ID or local path"
+    },
+    "HF_TOKEN": {
+      "type": "string",
+      "default": "",
+      "description": "Hugging Face access token for gated/private models"
+    },
+    "MAX_MODEL_LEN": {
+      "type": "integer",
+      "default": 32768,
+      "description": "Maximum context length (Qwen3-Coder-Next supports up to 256k)"
+    },
+    "GPU_MEMORY_UTILIZATION": {
+      "type": "number",
+      "default": 0.90,
+      "description": "Fraction of GPU memory to use (0.0 to 1.0)"
+    },
+    "TENSOR_PARALLEL_SIZE": {
+      "type": "integer",
+      "default": 1,
+      "description": "Number of GPUs to use for tensor parallelism"
+    },
+    "QUANTIZATION": {
+      "type": "string",
+      "default": "",
+      "description": "Quantization method: awq, gptq, squeezellm, bitsandbytes (leave empty for none)"
+    },
+    "MAX_NUM_SEQS": {
+      "type": "integer",
+      "default": 256,
+      "description": "Maximum number of sequences per iteration"
+    },
+    "TRUST_REMOTE_CODE": {
+      "type": "boolean",
+      "default": true,
+      "description": "Trust remote code execution (required for Qwen models)"
+    },
+    "TOKENIZER_MODE": {
+      "type": "string",
+      "default": "auto",
+      "description": "Tokenizer mode: auto, slow"
+    }
+  }
+}
