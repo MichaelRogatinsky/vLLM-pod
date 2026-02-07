@@ -29,11 +29,25 @@ RUN python3 -m pip install --upgrade pip setuptools wheel
 # Set working directory
 WORKDIR /app
 
-# Copy requirements first for better caching
-COPY requirements.txt .
+# Install PyTorch first (required for flash-attn compilation)
+RUN pip install --no-cache-dir torch>=2.5.0
 
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Install flash-attn separately (requires torch)
+RUN pip install --no-cache-dir flash-attn>=2.7.0
+
+# Install remaining dependencies
+RUN pip install --no-cache-dir \
+    vllm>=0.15.1 \
+    transformers>=5.1.0 \
+    runpod>=1.7.0 \
+    huggingface_hub>=0.26.0 \
+    tokenizers>=0.20.0 \
+    fastapi>=0.115.0 \
+    uvicorn>=0.32.0 \
+    pydantic>=2.9.0 \
+    aiohttp>=3.11.0 \
+    numpy>=1.26.0 \
+    requests>=2.32.0
 
 # Copy application code
 COPY src/ /app/src/
