@@ -1,0 +1,18 @@
+# vLLM and core dependencies with latest versions
+vllm>=0.15.1
+transformers>=5.1.0
+torch>=2.5.0
+runpod>=1.7.0
+
+# Additional dependencies
+huggingface_hub>=0.26.0
+tokenizers>=0.20.0
+fastapi>=0.115.0
+uvicorn>=0.32.0
+pydantic>=2.9.0
+aiohttp>=3.11.0
+numpy>=1.26.0
+requests>=2.32.0
+
+# Optional optimizations
+flash-attn>=2.7.0
