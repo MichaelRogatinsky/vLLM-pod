@@ -1,6 +1,6 @@
 # vLLM and core dependencies with latest versions
-vllm>=0.7.1
-transformers>=4.46.0
+vllm>=0.15.1
+transformers>=5.1.0
 torch>=2.5.0
 runpod>=1.7.0
 
